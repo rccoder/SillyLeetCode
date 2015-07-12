@@ -15,7 +15,18 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
 ```
 For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
 
+##简单思路
+
+求二叉搜索树中给定两个节点的最近公共祖先（LCA）
+
+从root开始，三种情况
+
+两边，全左，全右
+
+递归
+
 ##Cpp
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -45,4 +56,31 @@ public:
     }
 };
 
+```
+
+##JavaScript
+
+```javascript
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+var lowestCommonAncestor = function(root, p, q) {
+    if((root.val - p.val) * (root.val - q.val) <= 0) {
+        return root;
+    } else if(root.val - p.val > 0) {
+        return lowestCommonAncestor(root.left, p, q);
+    } else {
+        return lowestCommonAncestor(root.right, p, q);
+    }
+};
 ```
