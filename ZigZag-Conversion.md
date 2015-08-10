@@ -16,6 +16,10 @@ convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 
 ## 解题思路
 
+找规律，看出现的位置
+
+一组有2*n-2个
+
 ## Cpp
 ```cpp
 class Solution {
